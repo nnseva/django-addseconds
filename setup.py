@@ -20,12 +20,12 @@ setup(
     # https://packaging.python.org/en/latest/single_source_version.html
     version='0.0.1b1',
 
-    description='The Django-AddSeconds package provides template tags for datetime ariphmetics',
+    description='The Django-AddSeconds package provides template filters for datetime manipulations',
     long_description='''
 Django-AddSeconds
 =================
 
-The package provides template tags for datetime ariphmetics.
+The package provides template filters for datetime manipulations.
 See details at the home page: https://github.com/nnseva/django-addseconds
 ''',
 
