@@ -3,12 +3,14 @@ add_seconds template filter module
 """
 
 import datetime
+
+from django import template
 from django.utils.dateparse import (
     parse_date as _parse_date,
+    parse_datetime as _parse_datetime,
     parse_time as _parse_time,
-    parse_datetime as _parse_datetime
 )
-from django import template
+
 
 register = template.Library()
 
@@ -19,7 +21,8 @@ def parse_date(value):
     Filter parsing date
     and returning a date value
     """
-    return _parse_date(value)
+    if isinstance(value, str):
+        return _parse_date(value)
 
 
 @register.filter
@@ -28,7 +31,8 @@ def parse_time(value):
     Filter parsing time
     and returning a time value
     """
-    return _parse_time(value)
+    if isinstance(value, str):
+        return _parse_time(value)
 
 
 @register.filter
@@ -37,7 +41,8 @@ def parse_datetime(value):
     Filter parsing datetime
     and returning a datetime value
     """
-    return _parse_datetime(value)
+    if isinstance(value, str):
+        return _parse_datetime(value)
 
 
 @register.filter
@@ -60,10 +65,14 @@ def addseconds(value, arg):
             value = datetime.datetime.fromtimestamp(value)
         elif isinstance(value, str):
             value = _parse_datetime(value)
-        else:
-            return
-
+    if not isinstance(value, datetime.datetime):
+        return
     if isinstance(arg, str):
-        arg = float(arg)
+        try:
+            arg = float(arg)
+        except ValueError:
+            return
+    if not isinstance(arg, (int, float)):
+        return
 
     return value + datetime.timedelta(0, arg)

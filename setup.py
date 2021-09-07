@@ -18,7 +18,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.0.1b1',
+    version='0.0.1b2',
 
     description='The Django-AddSeconds package provides template filters for datetime manipulations',
     long_description='''
