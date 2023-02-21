@@ -1,4 +1,4 @@
-[![Build Status](https://api.travis-ci.com/nnseva/django-addseconds.svg?branch=master)](https://travis-ci.com/github/nnseva/django-addseconds)
+[![Tests](https://github.com/nnseva/django-addseconds/actions/workflows/test.yml/badge.svg)](https://github.com/nnseva/django-addseconds/actions/workflows/test.yml)
 
 # Django AddSeconds
 
